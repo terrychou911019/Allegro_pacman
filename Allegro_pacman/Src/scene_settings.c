@@ -22,10 +22,10 @@ static void draw(void) {
 	al_clear_to_color(al_map_rgb(3, 38, 58));
 	char m_volume[100];
 	sprintf_s(m_volume, sizeof(m_volume), "Music Volume : %2.f %%", music_volume < 0.1 ? (double)0 : music_volume * 100);
-	al_draw_text(volume1, al_map_rgb(222, 125, 44), 400, 300, ALLEGRO_ALIGN_CENTRE, m_volume);
+	al_draw_text(volume1, al_map_rgb(250, 218, 141), 400, 300, ALLEGRO_ALIGN_CENTRE, m_volume);
 	char e_volume[100];
 	sprintf_s(e_volume, sizeof(e_volume), "Effect Volume : %2.f %%", effect_volume < 0.1 ? (double)0 : effect_volume * 100);
-	al_draw_text(volume1, al_map_rgb(222, 125, 44), 400, 400, ALLEGRO_ALIGN_CENTRE, e_volume);
+	al_draw_text(volume1, al_map_rgb(250, 218, 141), 400, 400, ALLEGRO_ALIGN_CENTRE, e_volume);
 	drawButton(increase_m);
 	drawButton(decrease_m);
 	drawButton(increase_e);

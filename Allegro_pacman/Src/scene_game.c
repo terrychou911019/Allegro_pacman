@@ -68,35 +68,64 @@ void draw_lose(void) {
 	al_draw_text(end5, al_map_rgb(250
 		, 0, 0), 400, 200, ALLEGRO_ALIGN_CENTRE, "Game Over");
 	al_draw_text(end2, al_map_rgb(222, 125, 44), 400, 400, ALLEGRO_ALIGN_CENTRE, buffer);
-	al_draw_text(end3, al_map_rgb(222, 125, 44), 400, 500, ALLEGRO_ALIGN_CENTRE, "Press \"Enter\" to go to menu");
+	al_draw_text(end3, al_map_rgb(222, 125, 44), 400, 500, ALLEGRO_ALIGN_CENTRE, "Press \"ENTER\" to go to menu");
 	al_draw_text(end3, al_map_rgb(222, 125, 44), 400, 600, ALLEGRO_ALIGN_CENTRE, "Press \"H\" to go to hall");
 }
 
 void press(int keycode) {
 	if (keycode == ALLEGRO_KEY_ENTER) {
 		stop_bgm(gameover);
+		stop_bgm(menuBGM);
+		stop_bgm(playing);
+		stop_bgm(playingb);
+		stop_bgm(playingc);
+		stop_bgm(gameover);
+		stop_bgm(you_win);
 		game_change_scene(scene_menu_create());
 	}
 	if (keycode == ALLEGRO_KEY_H) {
 		stop_bgm(gameover);
+		stop_bgm(menuBGM);
+		stop_bgm(playing);
+		stop_bgm(playingb);
+		stop_bgm(playingc);
+		stop_bgm(gameover);
+		stop_bgm(you_win);
 		game_change_scene(scene_hall_create());
 	}
 }
 void press_hall(int keycode) {
 	if (keycode == ALLEGRO_KEY_A) {
 		stop_bgm(menuBGM);
+		stop_bgm(playing);
+		stop_bgm(playingb);
+		stop_bgm(playingc);
 		playing = play_bgm(PLAYING, music_volume);
 		game_change_scene(scene_main_create());
 	}
 	if (keycode == ALLEGRO_KEY_B) {
 		stop_bgm(menuBGM);
+		stop_bgm(playing);
+		stop_bgm(playingb);
+		stop_bgm(playingc);
 		playingb = play_bgm(PLAYINGB, music_volume);
 		game_change_scene(scene_B_create());
 	}
 	if (keycode == ALLEGRO_KEY_C) {
 		stop_bgm(menuBGM);
+		stop_bgm(playing);
+		stop_bgm(playingb);
+		stop_bgm(playingc);
 		playingc = play_bgm(PLAYINGC, music_volume);
 		game_change_scene(scene_C_create());
+	}
+	if (keycode == ALLEGRO_KEY_ENTER) {
+		stop_bgm(menuBGM);
+		stop_bgm(playing);
+		stop_bgm(playingb);
+		stop_bgm(playingc);
+		playingc = play_bgm(PLAYINGC, music_volume);
+		game_change_scene(scene_menu_create());
 	}
 }
 static void init_lose() {
@@ -136,7 +165,7 @@ void draw_win(void) {
 	al_clear_to_color(al_map_rgb(3, 38, 58));
 	al_draw_text(end5, al_map_rgb(250, 218, 141), 400, 200, ALLEGRO_ALIGN_CENTRE, "You win !!");
 	al_draw_text(end2, al_map_rgb(222, 125, 44), 400, 400, ALLEGRO_ALIGN_CENTRE, buffer);
-	al_draw_text(end3, al_map_rgb(222, 125, 44), 400, 500, ALLEGRO_ALIGN_CENTRE, "Press \"Enter\" to go to menu");
+	al_draw_text(end3, al_map_rgb(222, 125, 44), 400, 500, ALLEGRO_ALIGN_CENTRE, "Press \"ENTER\" to go to menu");
 	al_draw_text(end3, al_map_rgb(222, 125, 44), 400, 600, ALLEGRO_ALIGN_CENTRE, "Press \"H\" to go to hall");
 }
 Scene scene_win_create(void) {
@@ -156,7 +185,7 @@ static void init(void) {
 	//basic_map = create_map(NULL);
 	// [TODO]
 	// Create map from .txt file and design your own map !!
-	basic_map = create_map("Assets/test.txt");
+	basic_map = create_map("Assets/map_nthu.txt");
 	if (!basic_map) {
 		game_abort("error on creating map");
 	}	
@@ -742,8 +771,9 @@ Scene scene_hall_create(void) {
 }
 void draw_hall(void) {
 	al_clear_to_color(al_map_rgb(3, 38, 58));
-	al_draw_text(end1, al_map_rgb(250, 218, 141), 400, 200, ALLEGRO_ALIGN_CENTRE, "Choose your map !");
-	al_draw_text(end4, al_map_rgb(222, 125, 44), 400, 400, ALLEGRO_ALIGN_CENTRE, "\"A\" : NTHU map");
-	al_draw_text(end4, al_map_rgb(222, 125, 44), 400, 500, ALLEGRO_ALIGN_CENTRE, "\"B\" : LOOK map");
-	al_draw_text(end4, al_map_rgb(222, 125, 44), 400, 600, ALLEGRO_ALIGN_CENTRE, "\"C\" : SQUARE map");
+	al_draw_text(end1, al_map_rgb(250, 218, 141), 400, 50, ALLEGRO_ALIGN_CENTRE, "Choose your map !");
+	al_draw_text(end4, al_map_rgb(222, 125, 44), 400, 300, ALLEGRO_ALIGN_CENTRE, "\"A\" : NTHU");
+	al_draw_text(end4, al_map_rgb(222, 125, 44), 400, 400, ALLEGRO_ALIGN_CENTRE, "\"B\" : LOOK!");
+	al_draw_text(end4, al_map_rgb(222, 125, 44), 400, 500, ALLEGRO_ALIGN_CENTRE, "\"C\" : SQUARE");
+	al_draw_text(end2, al_map_rgb(222, 125, 44), 400, 700, ALLEGRO_ALIGN_CENTRE, "Press \"ENTER\" to go to menu");
 }

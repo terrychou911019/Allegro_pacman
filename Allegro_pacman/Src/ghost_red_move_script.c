@@ -25,70 +25,7 @@ static void ghost_red_move_script_FREEDOM(Ghost* ghost, Map* M) {
 	// Uncomment the following code and finish pacman picking random direction.
 
 	
-	/*static Directions proba[4]; // possible movement
-	int cnt = 0;
 	
-	
-	for (Directions i = 1; i <= 4; i++)
-		if (ghost_movable(ghost, M, i, true)) proba[cnt++] = i;
-	int move = rand() % cnt;
-	if (ghost->objData.preMove == UP) {
-		if (proba[move] != DOWN) {
-			ghost_NextMove(ghost, proba[move]);
-		}
-		else if (cnt == 1) {
-			ghost_NextMove(ghost, DOWN);
-		}
-		else if (proba[move] == DOWN) {
-			while (proba[move] == DOWN) {
-				move = rand() % cnt;
-			}
-			ghost_NextMove(ghost, proba[move]);
-		}
-	}
-	else if (ghost->objData.preMove == DOWN) {
-		if (proba[move] != UP) {
-			ghost_NextMove(ghost, proba[move]);
-		}
-		else if (cnt == 1) {
-			ghost_NextMove(ghost, UP);
-		}
-		else if (proba[move] == UP) {
-			while (proba[move] == UP) {
-				move = rand() % cnt;
-			}
-			ghost_NextMove(ghost, proba[move]);
-		}
-	}
-	else if  (ghost->objData.preMove == RIGHT) {
-		if (proba[move] != LEFT) {
-			ghost_NextMove(ghost, proba[move]);
-		}
-		else if (cnt == 1) {
-			ghost_NextMove(ghost, LEFT);
-		}
-		else if (proba[move] == LEFT) {
-			while (proba[move] == LEFT) {
-				move = rand() % cnt;
-			}
-			ghost_NextMove(ghost, proba[move]);
-		}
-	}
-	else if (ghost->objData.preMove == LEFT) {
-		if (proba[move] != RIGHT) {
-			ghost_NextMove(ghost, proba[move]);
-		}
-		else if (cnt == 1) {
-			ghost_NextMove(ghost, RIGHT);
-		}
-		else if (proba[move] == RIGHT) {
-			while (proba[move] == RIGHT) {
-				move = rand() % cnt;
-			}
-			ghost_NextMove(ghost, proba[move]);
-		}
-
-	}*/
 	static Directions proba[400]; // possible movement
 	int cnt = 0;
 	static Directions chosen_direction = 0;

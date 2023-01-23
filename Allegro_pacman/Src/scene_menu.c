@@ -116,15 +116,6 @@ static void destroy() {
 static void on_key_down(int keycode) {
 
 	switch (keycode) {
-		case ALLEGRO_KEY_A:
-			game_change_scene(scene_main_create());
-			break;
-		case ALLEGRO_KEY_B:
-			game_change_scene(scene_B_create());
-			break;
-		case ALLEGRO_KEY_C:
-			game_change_scene(scene_C_create());
-			break;
 		case ALLEGRO_KEY_ENTER:
 			game_change_scene(scene_hall_create());
 			break;
